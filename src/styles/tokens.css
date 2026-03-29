@@ -1,0 +1,16 @@
+﻿:root {
+  --bg: #0b0b0f;
+  --panel: #14141a;
+  --panel2: #1b1b22;
+  --text: #f5f7fb;
+  --muted: #a7afbd;
+  --line: rgba(255, 255, 255, 0.08);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --space: 16px;
+  --space-lg: 22px;
+  --accent: #ffffff;
+  --danger: #ff6b6b;
+  --success: #8be28b;
+}

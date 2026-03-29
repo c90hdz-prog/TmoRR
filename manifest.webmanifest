@@ -1,0 +1,9 @@
+﻿{
+  "name": "Retail Open / Close",
+  "short_name": "OpenClose",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0B0B0F",
+  "theme_color": "#0B0B0F",
+  "icons": []
+}

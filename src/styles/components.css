@@ -1,0 +1,201 @@
+﻿.card {
+  background: rgba(20,20,26,0.95);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.panel {
+  padding: 16px;
+}
+.heroTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.heroSub {
+  margin: 0;
+  color: var(--muted);
+}
+.bigButton {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: left;
+  min-height: 82px;
+}
+.bigButtonTitle {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+}
+.bigButtonMeta {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.iconButton,
+.textButton,
+.primaryButton,
+.secondaryButton,
+.dangerButton {
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+}
+.primaryButton {
+  background: #fff;
+  color: #111;
+  font-weight: 700;
+}
+.secondaryButton {
+  background: rgba(255,255,255,0.04);
+}
+.dangerButton {
+  color: var(--danger);
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rowBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.employeeRow,
+.historyRow,
+.taskCard,
+.selectRow {
+  width: 100%;
+  background: rgba(20,20,26,0.92);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px 16px;
+}
+.selectRow.isSelected {
+  outline: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.08);
+}
+.employeeName,
+.taskTitle,
+.historyTitle {
+  font-weight: 600;
+}
+.pill {
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+.taskMeta,
+.historyMeta {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 6px;
+}
+.taskCard.done {
+  opacity: 0.52;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.badgeCritical {
+  color: #ffd7a8;
+}
+.sheetOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.42);
+  backdrop-filter: blur(3px);
+}
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 760px;
+  margin: 0 auto;
+  background: #15151b;
+  border-top-left-radius: 26px;
+  border-top-right-radius: 26px;
+  border: 1px solid var(--line);
+  padding: 14px 16px 24px;
+  box-shadow: var(--shadow);
+}
+.sheetHandle {
+  width: 46px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  margin: 4px auto 14px;
+}
+.sheetTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.sheetSub {
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+.sheetActions {
+  display: grid;
+  gap: 10px;
+}
+.input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 16px;
+  padding: 14px;
+}
+.emptyState {
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+}
+.reviewModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.44);
+  display: flex;
+  align-items: flex-end;
+}
+.reviewCard {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  background: #15151b;
+  border-top-left-radius: 26px;
+  border-top-right-radius: 26px;
+  border: 1px solid var(--line);
+  padding: 18px 16px 24px;
+}
+.listPlain {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.headerCard {
+  margin-bottom: 16px;
+}
