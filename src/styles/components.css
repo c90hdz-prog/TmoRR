@@ -175,10 +175,14 @@
 .reviewModal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.44);
+  background: rgba(0, 0, 0, 0.44);
   display: flex;
   align-items: flex-end;
+  justify-content: center;
+  padding-top: 24px;
+  overflow-y: auto;
 }
+
 .reviewCard {
   width: 100%;
   max-width: 760px;
@@ -188,6 +192,9 @@
   border-top-right-radius: 26px;
   border: 1px solid var(--line);
   padding: 18px 16px 24px;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .listPlain {
   display: grid;
@@ -198,4 +205,36 @@
 }
 .headerCard {
   margin-bottom: 16px;
+}
+.employeeName,
+.taskTitle,
+.historyTitle {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.taskMeta,
+.historyMeta {
+  color: #c7cfdb;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.selectRow,
+.employeeRow,
+.historyRow,
+.taskCard {
+  color: var(--text);
+}
+
+.sectionTitle {
+  color: #d7deea;
+}
+
+.taskCard.done {
+  opacity: 0.72;
+}
+
+.badge {
+  color: #d7deea;
 }
