@@ -25,6 +25,48 @@ export const selectTasksBySection = (state) => {
   return grouped;
 };
 
+export const selectSectionAssignmentSummary = (state, section) => {
+  const tasks = (state.activeShift?.tasks || []).filter(
+    (task) => task.section === section
+  );
+
+  if (!tasks.length) return "Unassigned";
+
+  const assignedNames = tasks.map((task) => task.assignedName).filter(Boolean);
+
+  if (!assignedNames.length) return "Unassigned";
+
+  const uniqueNames = [...new Set(assignedNames)];
+  const allAssigned = tasks.every((task) => task.assignedName);
+
+  if (uniqueNames.length === 1 && allAssigned) {
+    return uniqueNames[0];
+  }
+
+  return "Mixed";
+};
+
+export const selectSectionCompletionSummary = (state, section) => {
+  const tasks = (state.activeShift?.tasks || []).filter(
+    (task) => task.section === section
+  );
+
+  if (!tasks.length) return "0 / 0 complete";
+
+  const doneCount = tasks.filter((task) => task.done).length;
+  const total = tasks.length;
+
+  if (doneCount === total) return "Complete";
+  return `${doneCount} / ${total} complete`;
+};
+
+export const selectSectionIsComplete = (state, section) => {
+  const tasks = (state.activeShift?.tasks || []).filter(
+    (task) => task.section === section
+  );
+  return tasks.length > 0 && tasks.every((task) => task.done);
+};
+
 export const selectIncompleteCriticalTasks = (state) =>
   selectShiftTasks(state).filter((task) => task.critical && !task.done);
 

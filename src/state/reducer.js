@@ -29,17 +29,16 @@ export function reducer(state, action) {
       const exists = state.employees.some(
         (emp) => emp.name.toLowerCase() === name.toLowerCase()
       );
-      if (exists) return {
-        ...state,
-        ui: { ...state.ui, sheet: null }
-      };
+      if (exists) {
+        return {
+          ...state,
+          ui: { ...state.ui, sheet: null },
+        };
+      }
 
       return {
         ...state,
-        employees: uniqById([
-          ...state.employees,
-          { id: makeId("emp"), name },
-        ]),
+        employees: uniqById([...state.employees, { id: makeId("emp"), name }]),
         ui: { ...state.ui, sheet: null },
       };
     }
@@ -51,7 +50,9 @@ export function reducer(state, action) {
       let activeShift = state.activeShift;
       if (activeShift) {
         const employeeIds = activeShift.employeeIds.filter((empId) => empId !== id);
-        const employeeNames = activeShift.employeeNames.filter((_, idx) => activeShift.employeeIds[idx] !== id);
+        const employeeNames = activeShift.employeeNames.filter(
+          (_, idx) => activeShift.employeeIds[idx] !== id
+        );
 
         let leadId = activeShift.leadId;
         let leadName = activeShift.leadName;
@@ -284,6 +285,16 @@ export function reducer(state, action) {
       };
     }
 
+    case types.OPEN_ASSIGN_SECTION_SHEET: {
+      return {
+        ...state,
+        ui: {
+          ...state.ui,
+          sheet: { type: "assignSection", payload: action.payload },
+        },
+      };
+    }
+
     case types.OPEN_ADD_EMPLOYEE_SHEET: {
       return {
         ...state,
@@ -326,6 +337,34 @@ export function reducer(state, action) {
           ...state.activeShift,
           tasks: state.activeShift.tasks.map((task) =>
             task.taskId === taskId
+              ? {
+                  ...task,
+                  assignedTo: employee.id,
+                  assignedName: employee.name,
+                }
+              : task
+          ),
+        },
+        ui: {
+          ...state.ui,
+          sheet: null,
+        },
+      };
+    }
+
+    case types.ASSIGN_SECTION: {
+      if (!state.activeShift) return state;
+
+      const { section, employeeId } = action.payload;
+      const employee = state.employees.find((emp) => emp.id === employeeId);
+      if (!employee) return state;
+
+      return {
+        ...state,
+        activeShift: {
+          ...state.activeShift,
+          tasks: state.activeShift.tasks.map((task) =>
+            task.section === section
               ? {
                   ...task,
                   assignedTo: employee.id,
@@ -387,6 +426,49 @@ export function reducer(state, action) {
         ui: {
           ...state.ui,
           sheet: null,
+        },
+      };
+    }
+
+    case types.COMPLETE_SECTION: {
+      if (!state.activeShift) return state;
+      const { section } = action.payload;
+      const now = Date.now();
+
+      return {
+        ...state,
+        activeShift: {
+          ...state.activeShift,
+          tasks: state.activeShift.tasks.map((task) =>
+            task.section === section
+              ? {
+                  ...task,
+                  done: true,
+                  doneAt: now,
+                }
+              : task
+          ),
+        },
+      };
+    }
+
+    case types.UNCOMPLETE_SECTION: {
+      if (!state.activeShift) return state;
+      const { section } = action.payload;
+
+      return {
+        ...state,
+        activeShift: {
+          ...state.activeShift,
+          tasks: state.activeShift.tasks.map((task) =>
+            task.section === section
+              ? {
+                  ...task,
+                  done: false,
+                  doneAt: null,
+                }
+              : task
+          ),
         },
       };
     }

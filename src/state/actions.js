@@ -20,13 +20,17 @@ export const types = {
 
   OPEN_TASK_SHEET: "OPEN_TASK_SHEET",
   OPEN_ASSIGN_EMPLOYEE_SHEET: "OPEN_ASSIGN_EMPLOYEE_SHEET",
+  OPEN_ASSIGN_SECTION_SHEET: "OPEN_ASSIGN_SECTION_SHEET",
   OPEN_ADD_EMPLOYEE_SHEET: "OPEN_ADD_EMPLOYEE_SHEET",
   OPEN_ADD_OCCASIONAL_TASK_SHEET: "OPEN_ADD_OCCASIONAL_TASK_SHEET",
   CLOSE_SHEET: "CLOSE_SHEET",
 
   ASSIGN_TASK: "ASSIGN_TASK",
+  ASSIGN_SECTION: "ASSIGN_SECTION",
   CLEAR_TASK_ASSIGNMENT: "CLEAR_TASK_ASSIGNMENT",
   TOGGLE_TASK_DONE: "TOGGLE_TASK_DONE",
+  COMPLETE_SECTION: "COMPLETE_SECTION",
+  UNCOMPLETE_SECTION: "UNCOMPLETE_SECTION",
 
   ADD_OCCASIONAL_TASK: "ADD_OCCASIONAL_TASK",
 
@@ -54,16 +58,38 @@ export const actions = {
   cancelActiveShift: () => ({ type: types.CANCEL_ACTIVE_SHIFT }),
 
   openTaskSheet: (taskId) => ({ type: types.OPEN_TASK_SHEET, payload: { taskId } }),
-  openAssignEmployeeSheet: (taskId) => ({ type: types.OPEN_ASSIGN_EMPLOYEE_SHEET, payload: { taskId } }),
+  openAssignEmployeeSheet: (taskId) => ({
+    type: types.OPEN_ASSIGN_EMPLOYEE_SHEET,
+    payload: { taskId },
+  }),
+  openAssignSectionSheet: (section) => ({
+    type: types.OPEN_ASSIGN_SECTION_SHEET,
+    payload: { section },
+  }),
   openAddEmployeeSheet: () => ({ type: types.OPEN_ADD_EMPLOYEE_SHEET }),
   openAddOccasionalTaskSheet: () => ({ type: types.OPEN_ADD_OCCASIONAL_TASK_SHEET }),
   closeSheet: () => ({ type: types.CLOSE_SHEET }),
 
-  assignTask: (taskId, employeeId) => ({ type: types.ASSIGN_TASK, payload: { taskId, employeeId } }),
-  clearTaskAssignment: (taskId) => ({ type: types.CLEAR_TASK_ASSIGNMENT, payload: { taskId } }),
+  assignTask: (taskId, employeeId) => ({
+    type: types.ASSIGN_TASK,
+    payload: { taskId, employeeId },
+  }),
+  assignSection: (section, employeeId) => ({
+    type: types.ASSIGN_SECTION,
+    payload: { section, employeeId },
+  }),
+  clearTaskAssignment: (taskId) => ({
+    type: types.CLEAR_TASK_ASSIGNMENT,
+    payload: { taskId },
+  }),
   toggleTaskDone: (taskId) => ({ type: types.TOGGLE_TASK_DONE, payload: { taskId } }),
+  completeSection: (section) => ({ type: types.COMPLETE_SECTION, payload: { section } }),
+  uncompleteSection: (section) => ({ type: types.UNCOMPLETE_SECTION, payload: { section } }),
 
-  addOccasionalTask: (taskTemplateId) => ({ type: types.ADD_OCCASIONAL_TASK, payload: { taskTemplateId } }),
+  addOccasionalTask: (taskTemplateId) => ({
+    type: types.ADD_OCCASIONAL_TASK,
+    payload: { taskTemplateId },
+  }),
 
   openEndShiftReview: () => ({ type: types.OPEN_END_SHIFT_REVIEW }),
   closeEndShiftReview: () => ({ type: types.CLOSE_END_SHIFT_REVIEW }),

@@ -1,42 +1,57 @@
 ﻿.card {
-  background: rgba(20,20,26,0.95);
+  background: linear-gradient(180deg,
+      rgba(24, 24, 31, 0.96),
+      rgba(14, 14, 20, 0.98));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
+
 .panel {
   padding: 16px;
 }
+
 .heroTitle {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin: 0 0 6px;
+  color: var(--text-strong);
 }
+
 .heroSub {
   margin: 0;
   color: var(--muted);
 }
+
 .bigButton {
   width: 100%;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(226, 0, 116, 0.16);
+  background:
+    linear-gradient(180deg, rgba(226, 0, 116, 0.12), rgba(226, 0, 116, 0.05)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
   color: var(--text);
   border-radius: var(--radius);
   padding: 18px;
   text-align: left;
   min-height: 82px;
+  box-shadow: 0 10px 28px rgba(226, 0, 116, 0.12);
 }
+
 .bigButtonTitle {
   display: block;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
+  color: var(--text-strong);
 }
+
 .bigButtonMeta {
   display: block;
   margin-top: 4px;
   color: var(--muted);
   font-size: 14px;
 }
+
 .iconButton,
 .textButton,
 .primaryButton,
@@ -45,86 +60,158 @@
   border-radius: 16px;
   border: 1px solid var(--line);
   padding: 12px 14px;
-  background: rgba(255,255,255,0.04);
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.iconButton:hover,
+.textButton:hover,
+.primaryButton:hover,
+.secondaryButton:hover,
+.dangerButton:hover {
+  transform: translateY(-1px);
+}
+
+.iconButton,
+.textButton,
+.secondaryButton {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.02));
   color: var(--text);
 }
+
 .primaryButton {
-  background: #fff;
-  color: #111;
-  font-weight: 700;
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  color: #ffffff;
+  font-weight: 800;
+  border: 1px solid rgba(255, 77, 166, 0.35);
+  box-shadow: 0 12px 28px rgba(226, 0, 116, 0.26);
 }
+
+.primaryButton:hover {
+  box-shadow: 0 14px 32px rgba(226, 0, 116, 0.34);
+}
+
 .secondaryButton {
-  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(226, 0, 116, 0.2);
+  background:
+    linear-gradient(180deg, rgba(226, 0, 116, 0.08), rgba(226, 0, 116, 0.03)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
 }
+
 .dangerButton {
-  color: var(--danger);
+  color: #ff9aa9;
+  border: 1px solid rgba(255, 107, 107, 0.22);
+  background: rgba(255, 107, 107, 0.06);
 }
+
 .row {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .rowBetween {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
+
 .employeeRow,
 .historyRow,
 .taskCard,
 .selectRow {
   width: 100%;
-  background: rgba(20,20,26,0.92);
+  background: linear-gradient(180deg,
+      rgba(18, 18, 25, 0.98),
+      rgba(10, 10, 16, 0.98));
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 14px 16px;
+  color: var(--text);
 }
+
 .selectRow.isSelected {
-  outline: 1px solid rgba(255,255,255,0.28);
-  background: rgba(255,255,255,0.08);
+  border-color: rgba(226, 0, 116, 0.4);
+  background:
+    linear-gradient(180deg, rgba(226, 0, 116, 0.13), rgba(226, 0, 116, 0.05)),
+    linear-gradient(180deg, rgba(18, 18, 25, 0.98), rgba(10, 10, 16, 0.98));
+  box-shadow: 0 0 0 1px rgba(226, 0, 116, 0.08) inset;
 }
+
 .employeeName,
 .taskTitle,
 .historyTitle {
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--text-strong);
 }
+
 .pill {
-  border: 1px solid var(--line);
-  color: var(--text);
-  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(226, 0, 116, 0.2);
+  color: #ffd6eb;
+  background: rgba(226, 0, 116, 0.12);
   padding: 8px 10px;
   border-radius: 999px;
   font-size: 13px;
 }
+
 .taskMeta,
 .historyMeta {
   color: var(--muted);
   font-size: 14px;
   margin-top: 6px;
 }
+
 .taskCard.done {
-  opacity: 0.52;
+  opacity: 0.58;
+  border-color: rgba(226, 0, 116, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.01)),
+    linear-gradient(180deg, rgba(226, 0, 116, 0.04), rgba(226, 0, 116, 0.02));
 }
+
+.taskCard.done .taskTitle {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: rgba(255, 255, 255, 0.22);
+}
+
+.taskCard.done .taskMeta {
+  color: #8e96a9;
+}
+
+.taskCard.done .badge,
+.taskCard.done .badgeCritical {
+  opacity: 0.72;
+}
+
+
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(226, 0, 116, 0.18);
   border-radius: 999px;
   padding: 6px 10px;
   font-size: 12px;
-  color: var(--muted);
+  color: #ffd6eb;
+  background: rgba(226, 0, 116, 0.1);
 }
+
 .badgeCritical {
-  color: #ffd7a8;
+  color: #ffd6eb;
+  border-color: rgba(226, 0, 116, 0.22);
+  background: rgba(226, 0, 116, 0.12);
 }
+
 .sheetOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.42);
-  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(5px);
 }
+
 .sheet {
   position: fixed;
   left: 0;
@@ -132,46 +219,62 @@
   bottom: 0;
   max-width: 760px;
   margin: 0 auto;
-  background: #15151b;
+  background: linear-gradient(180deg,
+      rgba(20, 20, 28, 0.98),
+      rgba(10, 10, 16, 0.99));
   border-top-left-radius: 26px;
   border-top-right-radius: 26px;
   border: 1px solid var(--line);
   padding: 14px 16px 24px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35);
 }
+
 .sheetHandle {
   width: 46px;
   height: 5px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   margin: 4px auto 14px;
 }
+
 .sheetTitle {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0 0 4px;
+  color: var(--text-strong);
 }
+
 .sheetSub {
   color: var(--muted);
   margin: 0 0 14px;
 }
+
 .sheetActions {
   display: grid;
   gap: 10px;
 }
+
 .input {
   width: 100%;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(226, 0, 116, 0.18);
   color: var(--text);
   border-radius: 16px;
   padding: 14px;
 }
+
+.input:focus {
+  outline: none;
+  border-color: rgba(226, 0, 116, 0.45);
+  box-shadow: 0 0 0 3px rgba(226, 0, 116, 0.12);
+}
+
 .emptyState {
   padding: 24px;
   text-align: center;
   color: var(--muted);
 }
+
 .reviewModal {
   position: fixed;
   inset: 0;
@@ -187,7 +290,9 @@
   width: 100%;
   max-width: 760px;
   margin: 0 auto;
-  background: #15151b;
+  background: linear-gradient(180deg,
+      rgba(20, 20, 28, 0.98),
+      rgba(10, 10, 16, 0.99));
   border-top-left-radius: 26px;
   border-top-right-radius: 26px;
   border: 1px solid var(--line);
@@ -196,6 +301,7 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+
 .listPlain {
   display: grid;
   gap: 8px;
@@ -203,38 +309,7 @@
   padding-left: 18px;
   color: var(--muted);
 }
+
 .headerCard {
   margin-bottom: 16px;
-}
-.employeeName,
-.taskTitle,
-.historyTitle {
-  font-weight: 600;
-  color: var(--text);
-}
-
-.taskMeta,
-.historyMeta {
-  color: #c7cfdb;
-  font-size: 14px;
-  margin-top: 6px;
-}
-
-.selectRow,
-.employeeRow,
-.historyRow,
-.taskCard {
-  color: var(--text);
-}
-
-.sectionTitle {
-  color: #d7deea;
-}
-
-.taskCard.done {
-  opacity: 0.72;
-}
-
-.badge {
-  color: #d7deea;
 }

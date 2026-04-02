@@ -8,6 +8,7 @@ import { renderHistoryDetailScreen, bindHistoryDetailScreen } from "./features/h
 import { renderBottomSheet } from "./ui/bottomSheet.js";
 import { renderTaskActionSheet, bindTaskActionSheet } from "./features/checklist/taskActionSheet.js";
 import { renderAssignEmployeeSheet, bindAssignEmployeeSheet } from "./features/checklist/assignEmployeeSheet.js";
+import { renderAssignSectionSheet, bindAssignSectionSheet } from "./features/checklist/assignSectionSheet.js";
 import { renderAddEmployeeSheet, bindAddEmployeeSheet } from "./features/employees/addEmployeeSheet.js";
 import { renderAddOccasionalTaskSheet, bindAddOccasionalTaskSheet } from "./features/checklist/addOccasionalTaskSheet.js";
 import { renderEndShiftReview, bindEndShiftReview } from "./features/review/endShiftReview.js";
@@ -80,6 +81,8 @@ export function renderApp(store) {
     sheetHtml = renderTaskActionSheet(state, sheet.payload);
   } else if (sheet.type === "assignEmployee") {
     sheetHtml = renderAssignEmployeeSheet(state, sheet.payload);
+  } else if (sheet.type === "assignSection") {
+    sheetHtml = renderAssignSectionSheet(state, sheet.payload);
   } else if (sheet.type === "addEmployee") {
     sheetHtml = renderAddEmployeeSheet();
   } else if (sheet.type === "addOccasionalTask") {
@@ -92,6 +95,8 @@ export function renderApp(store) {
     bindTaskActionSheet(store, sheet.payload);
   } else if (sheet.type === "assignEmployee") {
     bindAssignEmployeeSheet(store, sheet.payload);
+  } else if (sheet.type === "assignSection") {
+    bindAssignSectionSheet(store, sheet.payload);
   } else if (sheet.type === "addEmployee") {
     bindAddEmployeeSheet(store);
   } else if (sheet.type === "addOccasionalTask") {
